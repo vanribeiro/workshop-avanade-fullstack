@@ -1,8 +1,54 @@
-# Frontend
+# Frontend — Workshop Avanade Fullstack
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.
+Angular SPA for the eco-friendly product inventory manager.
 
-## Development server
+## Tech Stack
+
+- **Angular 21**
+- **Angular Material** (UI components)
+- **TypeScript 5.9**
+- **RxJS**
+- **Reactive Forms**
+- **Node.js 22.22.3**
+
+## Project Structure
+
+```
+src/app/
+├── item.model.ts                      # TypeScript interfaces (Category, Item, ItemRequest)
+├── item.service.ts                    # HTTP service (HttpClient)
+├── item-manager/
+│   ├── item-manager.component.ts      # Component logic
+│   ├── item-manager.component.html    # Template
+│   └── item-manager.component.css     # Styles
+├── app.config.ts                      # App providers (HttpClient, Router)
+├── app.routes.ts                      # Route definitions
+└── app.ts                             # Root component
+```
+
+## Running
+
+```bash
+npm install
+npm start
+```
+
+App available at `http://localhost:4200`.
+
+## Features
+
+- **Registration form** built with Reactive Forms and Angular Material components (`mat-form-field`, `mat-input`, `mat-select`)
+  - Name field (text)
+  - Quantity field (number)
+  - Category dropdown — populated dynamically from the API, displays `categoryName` and sends `categoryId`
+  - **Clear** button resets the form
+  - **Save** button posts to the API, then reloads the table and clears the form
+- **Items table** (`mat-table`) displaying all registered items with columns: ID, Name, Quantity, Category
+
+## Backend Dependency
+
+This app communicates with the Spring Boot backend running at `http://localhost:8080`. Make sure the backend is running before starting the frontend. See [backend/README.md](../backend/README.md).
+
 
 To start a local development server, run:
 
