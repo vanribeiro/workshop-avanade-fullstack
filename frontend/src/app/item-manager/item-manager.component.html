@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>Cadastro de Itens Sustentáveis</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="itemName" placeholder="Ex: Garrafa Térmica" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Quantidade</mat-label>
+          <input matInput type="number" formControlName="itemQuantity" placeholder="Ex: 10" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="categoryId">
+            @for (cat of categories; track cat.categoryId) {
+              <mat-option [value]="cat.categoryId">{{ cat.categoryName }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-flat-button color="primary" (click)="onSave()" [disabled]="form.invalid">
+            Salvar
+          </button>
+          <button mat-stroked-button (click)="onClear()">Limpar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="table-card">
+    <mat-card-header>
+      <mat-card-title>Itens Cadastrados</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <table mat-table [dataSource]="items" class="items-table">
+        <ng-container matColumnDef="itemId">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let item">{{ item.itemId }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="itemName">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let item">{{ item.itemName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="itemQuantity">
+          <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+          <td mat-cell *matCellDef="let item">{{ item.itemQuantity }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoryName">
+          <th mat-header-cell *matHeaderCellDef>Categoria</th>
+          <td mat-cell *matCellDef="let item">{{ item.category.categoryName }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
