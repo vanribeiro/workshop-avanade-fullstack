@@ -26,10 +26,10 @@
         </mat-form-field>
 
         <div class="form-actions">
-          <button mat-flat-button color="primary" (click)="onSave()" [disabled]="form.invalid">
+          <button mat-stroked-button (click)="onClear()">Limpar</button>
+          <button mat-flat-button class="save-btn" (click)="onSave()" [disabled]="form.invalid">
             Salvar
           </button>
-          <button mat-stroked-button (click)="onClear()">Limpar</button>
         </div>
       </form>
     </mat-card-content>

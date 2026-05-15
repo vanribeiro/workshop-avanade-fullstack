@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -32,7 +32,8 @@ export class ItemManagerComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private itemService: ItemService
+    private itemService: ItemService,
+    private cdr: ChangeDetectorRef
   ) {
     this.form = this.fb.group({
       itemName: ['', Validators.required],
@@ -48,13 +49,19 @@ export class ItemManagerComponent implements OnInit {
 
   loadCategories(): void {
     this.itemService.getCategories().subscribe({
-      next: (data) => (this.categories = data),
+      next: (data) => {
+        this.categories = data;
+        this.cdr.detectChanges();
+      },
     });
   }
 
   loadItems(): void {
     this.itemService.getItems().subscribe({
-      next: (data) => (this.items = data),
+      next: (data) => {
+        this.items = data;
+        this.cdr.detectChanges();
+      },
     });
   }
 

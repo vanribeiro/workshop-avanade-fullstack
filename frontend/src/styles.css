@@ -16,3 +16,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #fafafa;
 }
+
+.mat-mdc-select-panel {
+  background-color: white !important;
+}
+
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-infix {
+  padding-left: 8px !important;
+  padding-right: 4px !important;
+}
