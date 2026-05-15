@@ -18,6 +18,7 @@ A fullstack web application built with **Spring Boot** (backend) and **Angular**
 - **TypeScript 5.9**
 - **RxJS**
 - **Reactive Forms**
+- **Node.js 22**
 
 ## Project Structure
 
