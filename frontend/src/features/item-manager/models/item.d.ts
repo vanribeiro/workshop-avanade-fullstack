@@ -1,7 +1,3 @@
-export interface Category {
-  categoryId: number;
-  categoryName: string;
-}
 
 export interface Item {
   itemId: number;

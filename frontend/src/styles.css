@@ -1,14 +1,14 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  @include mat.theme(
+    (color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
 }
 
 body {
@@ -17,11 +17,34 @@ body {
   background-color: #fafafa;
 }
 
+body,
+table td,
+table th {
+  color: #366036;
+  border-color: #366036;
+}
+
+hr {
+  width: 100%;
+    border: none;
+    border-top: 1px solid #366036;
+    opacity: 0.4;
+}
+
 .mat-mdc-select-panel {
   background-color: white !important;
 }
 
+.mdc-floating-label.mat-mdc-floating-label {
+  padding-left: 16px !important;
+}
+
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-infix {
-  padding-left: 8px !important;
-  padding-right: 4px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.mat-option--custom:hover,
+.mat-option--custom.mdc-list-item--selected {
+  background-color: #dce6dc !important;
 }

@@ -20,13 +20,13 @@
           <mat-label>Categoria</mat-label>
           <mat-select formControlName="categoryId">
             @for (cat of categories; track cat.categoryId) {
-              <mat-option [value]="cat.categoryId">{{ cat.categoryName }}</mat-option>
+              <mat-option class="mat-option--custom" [value]="cat.categoryId">{{ cat.categoryName }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
 
         <div class="form-actions">
-          <button mat-stroked-button (click)="onClear()">Limpar</button>
+          <button mat-stroked-button class="clean-btn" (click)="onClear()">Limpar</button>
           <button mat-flat-button class="save-btn" (click)="onSave()" [disabled]="form.invalid">
             Salvar
           </button>
@@ -34,6 +34,8 @@
       </form>
     </mat-card-content>
   </mat-card>
+
+  <hr>
 
   <mat-card class="table-card">
     <mat-card-header>

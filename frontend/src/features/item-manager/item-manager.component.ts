@@ -6,8 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import { Category, Item } from '../item.model';
-import { ItemService } from '../item.service';
+import { Category, Item } from './models';
+import { ItemService } from './services';
 
 @Component({
   selector: 'app-item-manager',
@@ -24,6 +24,7 @@ import { ItemService } from '../item.service';
   templateUrl: './item-manager.component.html',
   styleUrl: './item-manager.component.css',
 })
+
 export class ItemManagerComponent implements OnInit {
   form: FormGroup;
   categories: Category[] = [];
@@ -31,11 +32,11 @@ export class ItemManagerComponent implements OnInit {
   displayedColumns: string[] = ['itemId', 'itemName', 'itemQuantity', 'categoryName'];
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private itemService: ItemService,
     private cdr: ChangeDetectorRef
   ) {
-    this.form = this.fb.group({
+    this.form = this.formBuilder.group({
       itemName: ['', Validators.required],
       itemQuantity: [null, [Validators.required, Validators.min(1)]],
       categoryId: [null, Validators.required],

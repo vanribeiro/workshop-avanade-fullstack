@@ -27,8 +27,13 @@
   justify-content: flex-end;
 }
 
+.clean-btn {
+  color: #366036 !important;
+  border-color: #366036 !important;
+}
+
 .save-btn {
-  background-color: #1565c0 !important;
+  background-color: #366036 !important;
   color: white !important;
 }
 
