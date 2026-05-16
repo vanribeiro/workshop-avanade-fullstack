@@ -10,6 +10,7 @@ Spring Boot REST API for the eco-friendly product inventory manager.
 - **H2 Database** (in-memory)
 - **Lombok**
 - **Gradle 9.4.1**
+- **springdoc-openapi 2.8.6** (Swagger UI)
 
 ## Project Structure
 
@@ -105,3 +106,9 @@ With the application running, access the H2 database console at:
 | JDBC URL  | `jdbc:h2:mem:workshopdb` |
 | User Name | `sa`                     |
 | Password  | *(empty)*                |
+
+## Swagger UI
+
+With the application running, access the interactive API documentation at:
+
+**http://localhost:8080/swagger-ui/index.html**
